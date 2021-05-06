@@ -1,8 +1,8 @@
 package inviggoads.adsapp.controller;
 
 import inviggoads.adsapp.config.JwtTokenUtil;
-import inviggoads.adsapp.model.JwtRequest;
-import inviggoads.adsapp.model.JwtResponse;
+import inviggoads.adsapp.dto.JwtRequest;
+import inviggoads.adsapp.dto.JwtResponse;
 import inviggoads.adsapp.service.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
