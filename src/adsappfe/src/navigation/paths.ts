@@ -1,4 +1,5 @@
 export default {
-    HOME: '/',
-    LOGIN: '/login'
-}
+  HOME: "/",
+  LOGIN: "/login",
+  SIGN_UP: "/signup"
+};
