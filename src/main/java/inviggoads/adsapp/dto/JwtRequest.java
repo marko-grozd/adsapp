@@ -1,4 +1,4 @@
-package inviggoads.adsapp.model;
+package inviggoads.adsapp.dto;
 
 import java.io.Serializable;
 
