@@ -1,11 +1,21 @@
 import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
+import userservice from "../../services/userservice";
 import "./signup.css";
 
 const SignUp: React.FC = () => {
   const [username, setUsername] = useState<string>();
   const [password, setPassword] = useState<string>();
   const [phoneNumber, setPhoneNumber] = useState<string>();
+
+  const submit = async () => {
+    const userToAdd = {
+      userName: username,
+      phoneNumber: phoneNumber,
+      password: password
+    };
+    userservice.addUser(userToAdd).then(resp => console.log('responsee'));
+  }
 
   return (
     <div className="signup-page">
@@ -25,7 +35,7 @@ const SignUp: React.FC = () => {
         label="phone number"
         onChange={(e) => setPhoneNumber(e.target.value)}
       />
-      <button id='sign-up-button'>Signup</button>
+      <button id='sign-up-button' onClick={submit}>Signup</button>
     </div>
   );
 };

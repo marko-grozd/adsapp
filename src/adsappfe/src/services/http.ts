@@ -13,7 +13,8 @@ class HttpImpl implements Http {
   };
 
   private getRequest = async (method: string, path: string, body?: any) => {
-    const url = `${config.BASE_URL}/${path}`;
+    const url = `${path}`;
+    console.log('------------', url);
     const options: RequestInit = {
       method,
       headers: this.getHeaders(),

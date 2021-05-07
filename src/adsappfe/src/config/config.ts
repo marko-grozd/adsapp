@@ -1,5 +1,7 @@
 const API_URLS = {
-  login: "authenticate",
+  login: "/authenticate",
+  user: "/user",
+  signup: "/user/signup"
 };
 
 interface Config {

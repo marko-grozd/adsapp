@@ -14,7 +14,6 @@ public class AppUserDTO {
 
     private String password;
 
-
     public String getPassword() {
         return password;
     }

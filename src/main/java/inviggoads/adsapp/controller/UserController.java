@@ -21,6 +21,7 @@ public class UserController {
 
     @PostMapping("/signup")
     public ResponseEntity<AppUserDTO> saveUser(@RequestBody AppUserDTO user) {
+
         AppUser appUser = new AppUser();
         BeanUtils.copyProperties(user, appUser);
         AppUserDTO returnedValue = new AppUserDTO();
