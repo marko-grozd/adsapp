@@ -9,7 +9,6 @@ const Navigation: React.FC = () => (
         {noAuthRoutes.map(({ path, ...rest}) => (
             <Route key={path} path={path} {...rest } />
         ))}
-        <Redirect to={APP_PATHS.HOME} />
     </Switch>
 );
 

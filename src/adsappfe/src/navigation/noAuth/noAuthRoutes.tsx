@@ -1,11 +1,12 @@
 
 import Home from '../../compoments/home';
-import Login from '../../compoments/login/index';
+import Login from '../../compoments/login';
+
 import APP_PATHS from '../paths';
 
 export default [
     {
-        commponent: Login,
+        component: Login,
         exact: true,
         path: APP_PATHS.LOGIN
     },
