@@ -1,0 +1,19 @@
+.navbar {
+    background-color: blue;
+    overflow: auto;
+    display: flex;
+}
+
+.home-button:hover {
+    background-color: cornflowerblue;
+    cursor: pointer;
+}
+.login-button {
+    position: fixed;
+    right: 10px;
+}
+
+.login-button:hover {
+    background-color: cornflowerblue;
+    cursor: pointer;
+}

@@ -1,13 +1,16 @@
+
 import React from "react";
 import ReactDOM from "react-dom";
-import Home from "./compoments/home";
+import { BrowserRouter } from "react-router-dom";
+import Navigation from "./navigation/noAuth/noAuth";
 
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Navigation/>
+  </BrowserRouter>
+  ,
   document.getElementById("root")
 );
 
