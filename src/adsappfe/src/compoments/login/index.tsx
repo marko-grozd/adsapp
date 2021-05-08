@@ -18,23 +18,22 @@ const Login: React.FC = () => {
   };
 
   const signupPage = () => {
-      history.push(APP_PATHS.SIGN_UP);
-  }
+    history.push(APP_PATHS.SIGN_UP);
+  };
 
   const handleForm = async () => {
     const loginUser = {
       username: email,
-      password: password
+      password: password,
     };
-    await loginservice.loginUser(loginUser)
-    .then(resp => {
+    await loginservice.loginUser(loginUser).then((resp) => {
       if (resp.status === undefined) {
         localStorage.setItem("token", resp.token);
         history.push("/");
       } else {
         setErrorMessage("Doslo je do greske prilikom prijavljivanja!");
       }
-    })  
+    });
   };
 
   return (
@@ -63,7 +62,7 @@ const Login: React.FC = () => {
           Sign up
         </button>
       </div>
-      {errorMessage && <h5>{errorMessage} </h5> }
+      {errorMessage && <h5>{errorMessage} </h5>}
     </div>
   );
 };

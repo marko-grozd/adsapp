@@ -1,3 +1,4 @@
+import AdForm from "../../compoments/ad/adForm";
 import Home from "../../compoments/home";
 import Login from "../../compoments/login";
 import SignUp from "../../compoments/signup";
@@ -19,5 +20,10 @@ export default [
     component: SignUp,
     exact: true,
     path: APP_PATHS.SIGN_UP,
+  },
+  {
+    component: AdForm,
+    exact: true,
+    path: APP_PATHS.AD_FORM,
   },
 ];

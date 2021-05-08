@@ -16,14 +16,15 @@ const SignUp: React.FC = () => {
     const userToAdd = {
       userName: username,
       phoneNumber: phoneNumber,
-      password: password
+      password: password,
     };
-    await userservice.addUser(userToAdd)
-    .then(resp => {
+    await userservice.addUser(userToAdd).then((resp) => {
       console.log(resp.status);
-      resp.status === undefined ? history.push('/') : setErrorMessage("Doslo je do greske!!");
-    }); 
-  }
+      resp.status === undefined
+        ? history.push("/")
+        : setErrorMessage("Doslo je do greske!!");
+    });
+  };
 
   return (
     <div className="signup-page">
@@ -43,7 +44,9 @@ const SignUp: React.FC = () => {
         label="phone number"
         onChange={(e) => setPhoneNumber(e.target.value)}
       />
-      <button id='sign-up-button' onClick={submit}>Signup</button>
+      <button id="sign-up-button" onClick={submit}>
+        Signup
+      </button>
       {errorMessage && <h5>{errorMessage}</h5>}
     </div>
   );

@@ -1,13 +1,12 @@
-.signup-page{
-    display: flex;
-    flex-direction: column;
-    margin: 10% 10%;
+.signup-page {
+  display: flex;
+  flex-direction: column;
+  margin: 10% 10%;
 }
 
 #sign-up-button {
-    margin-top: 2%;
-    padding: 15px 32px;
-    background-color: blue;
-    color: white;
-  }
-  
+  margin-top: 2%;
+  padding: 15px 32px;
+  background-color: blue;
+  color: white;
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import HomeIcon from "@material-ui/icons/Home";
 import PersonIcon from "@material-ui/icons/Person";
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from "@material-ui/icons/Add";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import APP_PATHS from "../../navigation/paths";
 import "./navbar.css";
@@ -13,14 +13,13 @@ interface NavbarProps {
 }
 
 const NavBar: React.FC<NavbarProps> = ({ loggedUser }) => {
-
   const [userName, setUserName] = useState<any>();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     const name = token && jwtDecode<JwtPayload>(token).sub;
     setUserName(name);
-  }, [])
+  }, []);
 
   const history = useHistory();
   const [logout, setLogout] = useState<boolean>(false);
@@ -30,8 +29,8 @@ const NavBar: React.FC<NavbarProps> = ({ loggedUser }) => {
   };
 
   const openNewAddComponent = () => {
-
-  }
+    history.push(APP_PATHS.AD_FORM);
+  };
 
   const logoutAction = () => {
     localStorage.removeItem("token");
@@ -44,9 +43,14 @@ const NavBar: React.FC<NavbarProps> = ({ loggedUser }) => {
         Home
         <HomeIcon />
       </div>
-      {loggedUser && !logout ?  <div className="add-new-add">
-            <AddIcon onClick={openNewAddComponent}/>Add new
-          </div> : " "}
+      {loggedUser && !logout ? (
+        <div className="add-new-add">
+          <AddIcon onClick={openNewAddComponent} />
+          Add new
+        </div>
+      ) : (
+        " "
+      )}
       {loggedUser && !logout ? (
         <div className="user-info">
           {userName}

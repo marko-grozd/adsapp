@@ -14,8 +14,7 @@ const Home: React.FC = () => {
   return (
     <div className="home">
       <NavBar loggedUser={tokenExist} />
-      <p>Zdravo!!!</p>
-      <p> status token: {tokenExist} </p>
+      
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import config from "../config/config";
 
 interface Http {
   get(path: string): Promise<Response>;
@@ -6,17 +5,20 @@ interface Http {
 }
 
 class HttpImpl implements Http {
-  private getHeaders = () => {
+  private getHeaders = (token?: any) => {
     const headers = new Headers();
     headers.append("Content-Type", "application/json");
+    if (token) {
+      headers.append("Authorization", `Bearer ${token}`);
+    }
     return headers;
   };
 
-  private getRequest = async (method: string, path: string, body?: any) => {
+  private getRequest = async (method: string, path: string, body?: any, token?: any) => {
     const url = `${path}`;
     const options: RequestInit = {
       method,
-      headers: this.getHeaders(),
+      headers: this.getHeaders(token),
     };
 
     if (body) {
@@ -28,7 +30,8 @@ class HttpImpl implements Http {
 
   get = (path: string): any => this.getRequest("GET", path);
 
-  post = (path: string, body: any) => this.getRequest("POST", path, body);
+  post = (path: string, body: any, token?: any) => this.getRequest("POST", path, body, token);
+
 }
 
 export default new HttpImpl();
