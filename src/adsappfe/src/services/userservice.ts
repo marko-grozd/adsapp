@@ -11,7 +11,6 @@ interface UserService {
 class UserServiceImpl implements UserService {
 
     addUser = (body: any) => { 
-        console.log('debug: ==>', body);
        return  http.post(`${config.BASE_URL}${config.API_URLS.signup}`, body);
     }
 }

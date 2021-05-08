@@ -4,12 +4,12 @@ import APP_PATHS from "../../navigation/paths";
 import TextField from "@material-ui/core/TextField";
 
 import { useHistory } from "react-router-dom";
+import loginservice from "../../services/loginservice";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<String>();
   const [password, setPassword] = useState<String>();
-
-  const [time, setTime] = useState<number>(1);
+  const [errorMessage, setErrorMessage] = useState<String>();
 
   const history = useHistory();
 
@@ -21,15 +21,20 @@ const Login: React.FC = () => {
       history.push(APP_PATHS.SIGN_UP);
   }
 
-  const handleForm = () => {
-    const interval = setInterval(() => {
-      setTime((time) => time + 1);
-    }, 1000);
-    localStorage.setItem("token", "nekiToken");
-    setTimeout(() => {
-      clearInterval(interval);
-      history.push("/");
-    }, 5000);
+  const handleForm = async () => {
+    const loginUser = {
+      username: email,
+      password: password
+    };
+    await loginservice.loginUser(loginUser)
+    .then(resp => {
+      if (resp.status === undefined) {
+        localStorage.setItem("token", resp.token);
+        history.push("/");
+      } else {
+        setErrorMessage("Doslo je do greske prilikom prijavljivanja!");
+      }
+    })  
   };
 
   return (
@@ -49,7 +54,7 @@ const Login: React.FC = () => {
         {" "}
         Login{" "}
       </button>
-      time: {time}
+
       <div className="down-buttons">
         <button id="back-to-home" className="buttons-d" onClick={backToHome}>
           Back to home
@@ -58,6 +63,7 @@ const Login: React.FC = () => {
           Sign up
         </button>
       </div>
+      {errorMessage && <h5>{errorMessage} </h5> }
     </div>
   );
 };
