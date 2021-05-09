@@ -8,15 +8,14 @@ import "./navbar.css";
 import { useHistory } from "react-router";
 import jwtDecode, { JwtPayload } from "jwt-decode";
 
-interface NavbarProps {
-  loggedUser: boolean;
-}
 
-const NavBar: React.FC<NavbarProps> = ({ loggedUser }) => {
+const NavBar: React.FC = () => {
   const [userName, setUserName] = useState<any>();
+  const [loggedUser, setLoggedUser] = useState<boolean>();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+    token && setLoggedUser(true);
     const name = token && jwtDecode<JwtPayload>(token).sub;
     setUserName(name);
   }, []);

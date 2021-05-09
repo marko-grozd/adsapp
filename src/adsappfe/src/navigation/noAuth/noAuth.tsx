@@ -1,6 +1,5 @@
 import React from "react";
-import { Switch, Redirect, Route } from "react-router-dom";
-import APP_PATHS from "../../navigation/paths";
+import { Switch, Route } from "react-router-dom";
 import noAuthRoutes from "./noAuthRoutes";
 
 const Navigation: React.FC = () => (

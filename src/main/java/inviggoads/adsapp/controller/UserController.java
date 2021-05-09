@@ -29,4 +29,5 @@ public class UserController {
         BeanUtils.copyProperties(userService.saveUser(appUser), returnedValue);
         return new ResponseEntity<>(returnedValue, HttpStatus.OK);
     }
+
 }

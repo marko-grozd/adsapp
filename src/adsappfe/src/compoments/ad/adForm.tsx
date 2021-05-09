@@ -1,8 +1,6 @@
-import { InputLabel, MenuItem, Select, TextField } from '@material-ui/core';
+import { TextField } from '@material-ui/core';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
-import { send } from 'process';
-import React, { useEffect, useState } from 'react';
-import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import adservice from '../../services/adservice';
 import './adForm.css';

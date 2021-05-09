@@ -15,7 +15,9 @@ const CONFIG: Config = {
   },
 };
 
-export default {
+const configObj = {
   ...CONFIG[process.env.REACT_APP_ENV || "development"],
   API_URLS,
 };
+
+export default configObj;

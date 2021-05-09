@@ -1,0 +1,10 @@
+img {
+    width: 80%;
+}
+.tile-component {
+    cursor: pointer;
+}
+
+.tile-component:hover {
+    opacity: 0.5;
+}
