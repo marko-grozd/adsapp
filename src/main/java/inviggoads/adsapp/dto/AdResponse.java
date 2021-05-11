@@ -12,7 +12,7 @@ public class AdResponse {
     private String category;
     private String imageUrl;
     private String details;
-    private Integer grade;
+    private Double grade;
 
     public String getName() {
         return name;

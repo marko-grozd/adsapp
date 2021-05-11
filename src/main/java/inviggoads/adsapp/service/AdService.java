@@ -6,6 +6,9 @@ import inviggoads.adsapp.model.AppUser;
 import inviggoads.adsapp.repository.AdRepository;
 import inviggoads.adsapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -30,6 +33,10 @@ public class AdService {
         adToSave.setImageUrl(request.getImageUrl());
         adToSave.setDate(new Date());
         return ar.save(adToSave);
+    }
 
+    public Page<Ad> getAllPageable(int page) {
+        Pageable pageable = PageRequest.of(page, 3);
+        return  ar.findAll(pageable);
     }
 }
