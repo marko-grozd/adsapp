@@ -38,12 +38,12 @@ const NavBar: React.FC = () => {
 
   return (
     <div className="navbar">
-      <div className="home-button">
+      <div className="home-button" onClick={() => history.push("/")}>
         Home
         <HomeIcon />
       </div>
       {loggedUser && !logout ? (
-        <div className="add-new-add">
+        <div className="add-new-ad">
           <AddIcon onClick={openNewAddComponent} />
           Add new
         </div>

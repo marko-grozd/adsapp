@@ -2,6 +2,7 @@ package inviggoads.adsapp.controller;
 
 import inviggoads.adsapp.dto.AdRequest;
 import inviggoads.adsapp.dto.AdResponse;
+import inviggoads.adsapp.dto.AdWithUserDetails;
 import inviggoads.adsapp.model.Ad;
 import inviggoads.adsapp.model.Categories;
 import inviggoads.adsapp.service.AdService;
@@ -40,5 +41,20 @@ public class AdController {
             return adResponse;
         }).collect(Collectors.toList());
         return new ResponseEntity<>(res, HttpStatus.OK);
+    }
+
+    @GetMapping("/all/pagecount")
+    public Integer getPageCount() {
+        return ads.getAllPageable(0).getTotalPages();
+    }
+
+    @GetMapping("/{id}")
+    public AdWithUserDetails getById(@PathVariable Integer id) {
+        AdWithUserDetails adResponse = new AdWithUserDetails();
+        Ad desiredAd = ads.getById(id);
+        adResponse.setCategory(Categories.parse(desiredAd.getId()).toString());
+        BeanUtils.copyProperties(desiredAd, adResponse);
+        BeanUtils.copyProperties(desiredAd.getUser(), adResponse);
+        return adResponse;
     }
 }

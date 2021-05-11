@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -18,8 +19,9 @@ public class DataBaseInit {
     //import.sql throws an exception, this class is use for init database with  data...
 
     public List<AppUser> getUsers(UserRepository userRepository) {
+        BCryptPasswordEncoder bce = new BCryptPasswordEncoder();
        return List.of("pera", "mika", "zika", "aki", "admin").stream()
-                .map(userName -> userRepository.save(new AppUser(userName, "password", new Date(), "04345345")))
+                .map(userName -> userRepository.save(new AppUser(userName, bce.encode("password"), new Date(), "04345345")))
                 .collect(Collectors.toList());
     }
 

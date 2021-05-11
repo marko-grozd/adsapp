@@ -12,7 +12,24 @@ public class AdResponse {
     private String category;
     private String imageUrl;
     private String details;
+    private Integer id;
     private Double grade;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Double getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Double grade) {
+        this.grade = grade;
+    }
 
     public String getName() {
         return name;

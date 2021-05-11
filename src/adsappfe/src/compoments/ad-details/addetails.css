@@ -1,0 +1,21 @@
+.user-details {
+    margin: 30px 40px;
+    border: 1px solid red;
+    max-width: 150px;
+}
+
+.ad {
+    float: right;
+}
+
+img {
+    max-width: 650px;
+}
+
+.imagedetail {
+    margin-top: 20px;
+}
+
+.details {
+    font-style: italic;
+}
