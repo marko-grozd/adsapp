@@ -1,5 +1,6 @@
 package inviggoads.adsapp.service;
 
+import inviggoads.adsapp.model.Ad;
 import inviggoads.adsapp.model.AppUser;
 import inviggoads.adsapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +28,13 @@ public class UserService {
     public AppUser saveUser(AppUser user) {
        return userRepository.save(user);
     }
+
+    public List<Ad> findAllUserAds(String userName) {
+        AppUser appUser = userRepository.findByUserName(userName);
+        List<Ad> ads = appUser.getAds();
+        System.out.println("---");
+        return userRepository.findByUserName(userName).getAds();
+    }
+
+
 }

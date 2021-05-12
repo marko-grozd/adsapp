@@ -8,6 +8,19 @@ public class AdRequest {
     private String categoryId;
     private String city;
     private String userName;
+    private Double price;
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
     public String getUserName() {
         return userName;

@@ -4,6 +4,7 @@ import inviggoads.adsapp.dto.AdRequest;
 import inviggoads.adsapp.dto.AdResponse;
 import inviggoads.adsapp.dto.AdWithUserDetails;
 import inviggoads.adsapp.model.Ad;
+import inviggoads.adsapp.model.AppUser;
 import inviggoads.adsapp.model.Categories;
 import inviggoads.adsapp.service.AdService;
 import org.springframework.beans.BeanUtils;
@@ -23,6 +24,8 @@ public class AdController {
 
     @Autowired
     AdService ads;
+
+
 
     @PostMapping
     public ResponseEntity<AdResponse> saveAd(@RequestBody AdRequest adRequest) {
@@ -47,6 +50,8 @@ public class AdController {
     public Integer getPageCount() {
         return ads.getAllPageable(0).getTotalPages();
     }
+    
+    @GetMapping("/all/sort/{")
 
     @GetMapping("/{id}")
     public AdWithUserDetails getById(@PathVariable Integer id) {
@@ -57,4 +62,5 @@ public class AdController {
         BeanUtils.copyProperties(desiredAd.getUser(), adResponse);
         return adResponse;
     }
+
 }

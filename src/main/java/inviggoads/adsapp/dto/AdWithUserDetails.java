@@ -14,6 +14,15 @@ public class AdWithUserDetails {
     String category;
     Date date;
     String city;
+    Double price;
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
     public String getCity() {
         return city;

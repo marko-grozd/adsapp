@@ -14,6 +14,16 @@ public class AdResponse {
     private String details;
     private Integer id;
     private Double grade;
+    private Double price;
+
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 
     public Integer getId() {
         return id;

@@ -44,7 +44,7 @@ public class DataBaseInit {
                     cats.get(i),
                     users.get(i),
                     cities.get(i),
-                    new Date())));
+                    new Date(), 356.65+i+i+i)));
         }
         return res;
     }

@@ -15,6 +15,7 @@ const AdForm: React.FC = () => {
     const [categoryId, setCategoryId] = useState<string>();
     const [city, setCity] = useState<string>();
     const [errorMessage, setErrorMessage] = useState<string>();
+    const [price, setPrice] = useState<string>();
     const history = useHistory();
 
     const submitForm = async () => {
@@ -26,7 +27,8 @@ const AdForm: React.FC = () => {
             imageUrl: imageUrl,
             categoryId: categoryId,
             city: city,
-            userName: userName
+            userName: userName,
+            price: price
         };
         console.log(JSON.stringify(sendObj));
 
@@ -69,6 +71,12 @@ const AdForm: React.FC = () => {
             <select name="city" onChange={e => setCity(e.target.value)}>
                 {cities.map(name => <option value={name}>{name}</option>)}
             </select>
+            <TextField
+                id="standard-basic"
+                label="image url"
+                type="text"
+                onChange={(e) => setPrice(e.target.value)}
+            />
             <button id="submit-button" onClick={submitForm}>
                 Submit
       </button>

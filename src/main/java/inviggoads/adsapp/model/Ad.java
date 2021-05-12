@@ -24,6 +24,9 @@ public class Ad {
     private double grade;
 
     @Column
+    private double price;
+
+    @Column
     private int category;
 
     @ManyToOne
@@ -35,6 +38,18 @@ public class Ad {
 
     @Column
     private Date date;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     public String getName() {
         return name;
@@ -104,7 +119,7 @@ public class Ad {
         this.date = date;
     }
     public Ad() {}
-    public Ad(String name, String details, String imageUrl, double grade, int category, AppUser user, String city, Date date) {
+    public Ad(String name, String details, String imageUrl, double grade, int category, AppUser user, String city, Date date, double price) {
         this.name = name;
         this.details = details;
         this.imageUrl = imageUrl;
@@ -113,5 +128,6 @@ public class Ad {
         this.user = user;
         this.city = city;
         this.date = date;
+        this.price = price;
     }
 }

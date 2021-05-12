@@ -8,10 +8,11 @@ interface AdTileProps {
     imageUrl: string,
     date: Date,
     grade: number,
-    id: string;
+    id: string,
+    price: number
 }
 
-const AdTile: React.FC<AdTileProps> = ({name, imageUrl, date, grade, id}) => {
+const AdTile: React.FC<AdTileProps> = ({name, imageUrl, date, grade, id, price}) => {
     const history = useHistory();
     return (
         <div className="tile-component" onClick={() => history.push(`/ad/${id}`)}>
@@ -27,6 +28,9 @@ const AdTile: React.FC<AdTileProps> = ({name, imageUrl, date, grade, id}) => {
                 </div>
                 <div className="tile-details-grade">
                     {grade}
+                </div>
+                <div className="price">
+                    {price}
                 </div>
             </div>
         </div>

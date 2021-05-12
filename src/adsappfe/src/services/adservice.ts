@@ -15,6 +15,7 @@ interface AdService {
     pageCount(): number;
     getAll(page: number): Promise<AdDto>;
     getById(id: number): Promise<AdDto>;
+    getAllUsersAd(username: string, body: any): Promise<AdDto>;
 }
 
 
@@ -28,6 +29,10 @@ class AdServiceImpl implements AdService {
     getAll = (page: number) => http.get(`${config.BASE_URL}${config.API_URLS.ad}/all/${page}`);
 
     getById = (id: number) => http.get(`${config.BASE_URL}${config.API_URLS.ad}/${id}`);
+
+    getAllUsersAd = (username: string, token: any) => {
+        return http.get(`${config.BASE_URL}${config.API_URLS.user}/myads/${username}`, token);
+    }
 }
 
 export default new AdServiceImpl();

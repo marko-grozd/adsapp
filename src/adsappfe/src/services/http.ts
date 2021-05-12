@@ -15,6 +15,7 @@ class HttpImpl implements Http {
   };
 
   private getRequest = async (method: string, path: string, body?: any, token?: any) => {
+    
     const url = `${path}`;
     const options: RequestInit = {
       method,
@@ -28,7 +29,7 @@ class HttpImpl implements Http {
     return response.json();
   };
 
-  get = (path: string): any => this.getRequest("GET", path);
+  get = (path: string, token?: any): any => this.getRequest("GET", path, undefined, token);
 
   post = (path: string, body: any, token?: any) => this.getRequest("POST", path, body, token);
 
