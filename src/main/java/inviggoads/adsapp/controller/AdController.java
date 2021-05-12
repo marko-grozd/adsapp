@@ -50,8 +50,17 @@ public class AdController {
     public Integer getPageCount() {
         return ads.getAllPageable(0).getTotalPages();
     }
-    
-    @GetMapping("/all/sort/{")
+
+    /* should be refactored in one method */
+    @GetMapping("/all/sort/price")
+    public List<AdResponse> allprice() {
+        return ads.sortByPrice(0).stream().map(ad -> {
+            AdResponse adResponse = new AdResponse();
+            adResponse.setCategory(Categories.parse(ad.getCategory()).toString());
+            BeanUtils.copyProperties(ad, adResponse);
+            return adResponse;
+        }).collect(Collectors.toList());
+    }
 
     @GetMapping("/{id}")
     public AdWithUserDetails getById(@PathVariable Integer id) {

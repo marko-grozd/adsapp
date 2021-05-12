@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -40,6 +41,12 @@ public class AdService {
         Pageable pageable = PageRequest.of(page, 3);
         return  ar.findAll(pageable);
     }
+
+    public Page<Ad> sortByPrice(int page) {
+        Pageable pageable = PageRequest.of(page, 30, Sort.by("price"));
+        return ar.findAll(pageable);
+    }
+
 
     public Ad getById(int id) {
         return ar.findById(id).get();
