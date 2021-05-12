@@ -20,7 +20,7 @@ public class DataBaseInit {
 
     public List<AppUser> getUsers(UserRepository userRepository) {
         BCryptPasswordEncoder bce = new BCryptPasswordEncoder();
-       return List.of("pera", "mika", "zika", "aki", "admin").stream()
+       return List.of("pera", "mika", "zika", "aki", "admin", "pera12", "mika12", "zika12").stream()
                 .map(userName -> userRepository.save(new AppUser(userName, bce.encode("password"), new Date(), "04345345")))
                 .collect(Collectors.toList());
     }
@@ -31,20 +31,23 @@ public class DataBaseInit {
                 "https://www.chicagotribune.com/resizer/oCAINQVqraQinbymMrR5UHDQjMc=/1200x0/top/arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/YO4VIEHCNJHQDCZRPURF2WJP64.jpg",
                 "https://clickmyemails.com/wp-content/uploads/2018/09/Create-the-purchase-of-your-product.jpg",
                 "https://marketingweek.imgix.net/content/uploads/2017/09/06163244/price-tags_750.jpg?auto=compress,format&q=60&w=750&h=460",
-                "https://lallahoriye.com/wp-content/uploads/2019/04/Product_Lg_Type.jpg");
-        List<Integer> cats = List.of(3, 5, 6, 7, 3);
-        List<String> cities = List.of("Beograd", "Kragujevac", "Novi Sad", "Zrenjanin", "Negotin");
+                "https://lallahoriye.com/wp-content/uploads/2019/04/Product_Lg_Type.jpg",
+                "https://yellshops.com/wp-content/uploads/2020/11/shopping_center_online-e1605522760704-1170x630.jpg",
+                "https://media.wired.com/photos/5c9040ee4950d24718d6da99/16:9/w_2400,h_1350,c_limit/shoppingcart-1066110386.jpg",
+                "https://indorajawali.com/wp-content/uploads/2021/03/online-shop1.jpg");
+        List<Integer> cats = List.of(3, 5, 6, 7, 3, 2, 3, 1);
+        List<String> cities = List.of("Beograd", "Kragujevac", "Novi Sad", "Zrenjanin", "Negotin", "Kraljevo", "Subotica", "Vrbas");
 
         List<Ad> res = new ArrayList(5);
-        for (int i = 0; i<5; i++) {
+        for (int i = 0; i<8; i++) {
             res.add(adRepository.save(new Ad("NameAdNo"+i,
-                    "This is some content of properties of product"+i,
+                    "This is some content and properties of product"+i+ " info, info ",
                     pics.get(i),
                     5,
                     cats.get(i),
                     users.get(i),
                     cities.get(i),
-                    new Date(), 356.65+i+i+i)));
+                    new Date(), 356.65*(1+i))));
         }
         return res;
     }

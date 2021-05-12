@@ -43,8 +43,8 @@ const NavBar: React.FC = () => {
         <HomeIcon />
       </div>
       {loggedUser && !logout ? (
-        <div className="add-new-ad">
-          <AddIcon onClick={openNewAddComponent} />
+        <div className="add-new-ad" onClick={openNewAddComponent}>
+          <AddIcon />
           Add new
         </div>
       ) : (

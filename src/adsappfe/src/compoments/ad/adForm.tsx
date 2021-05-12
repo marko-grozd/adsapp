@@ -73,7 +73,7 @@ const AdForm: React.FC = () => {
             </select>
             <TextField
                 id="standard-basic"
-                label="image url"
+                label="price"
                 type="text"
                 onChange={(e) => setPrice(e.target.value)}
             />

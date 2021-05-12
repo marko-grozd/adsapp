@@ -47,7 +47,6 @@ const Home: React.FC = () => {
             <div>
                 Show only mine:
                 <Checkbox
-                    defaultChecked
                     color="primary"
                     inputProps={{ 'aria-label': 'secondary checkbox' }}
                     onChange={getUsersAds}
